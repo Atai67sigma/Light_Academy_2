@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Light Academy — колледж</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f9ff;--surface:#fff;--ink:#16194a;--muted:#555a85;--gold:#ffc93c;--teal:#1f9d94;--sky:#dfeaff;--line:#d5def5;--hero:#16194a;--hero-ink:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1030;--surface:#171b4a;--ink:#eef2ff;--muted:#a9b0e0;--sky:#1f2560;--line:#2c3375;--hero:#0a0c26}}
+:root[data-theme="dark"]{--bg:#0d1030;--surface:#171b4a;--ink:#eef2ff;--muted:#a9b0e0;--sky:#1f2560;--line:#2c3375;--hero:#0a0c26}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Onest,system-ui,sans-serif}
+h1,h2,h3{font-family:Unbounded,Onest,sans-serif;line-height:1.15;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--hero);color:var(--hero-ink)}
+.bar{max-width:1100px;margin:auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font:700 18px Unbounded,sans-serif;text-decoration:none}
+nav{display:flex;gap:8px;flex-wrap:wrap}
+nav a{text-decoration:none;font-weight:500;font-size:15px;padding:8px 16px;border-radius:999px;border:1.5px solid rgba(255,255,255,.28);transition:background .2s,color .2s}
+nav a:hover{background:#fff;color:#16194a}
+nav a.cta{background:var(--gold);color:#16194a;border-color:var(--gold);font-weight:600}
+.wrap{max-width:1100px;margin:auto;padding:0 20px}
+.hero{background:var(--hero);color:var(--hero-ink);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:24px;align-items:center;padding-top:56px;padding-bottom:40px}
+.hero h1{font-size:clamp(32px,5vw,54px);font-weight:700}
+.hero p{font-size:19px;color:#cdd3ff;max-width:46ch;margin:20px 0 28px}
+.btn{display:inline-block;padding:14px 26px;border-radius:14px;font-weight:600;text-decoration:none;background:var(--gold);color:#16194a;margin:0 10px 10px 0}
+.btn.ghost{background:transparent;color:inherit;border:1.5px solid currentColor}
+.beam{animation:glow 3.5s ease-in-out infinite alternate;transform-origin:50% 0}
+@keyframes glow{from{opacity:.55}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.beam{animation:none}html{scroll-behavior:auto}}
+section{padding:72px 0}
+h2{font-size:clamp(26px,3.6vw,38px);margin-bottom:16px}
+.lead{color:var(--muted);max-width:62ch;margin:0 0 32px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.about svg{width:100%;height:auto;border-radius:24px;background:var(--sky)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+.facts div{border-left:4px solid var(--gold);padding-left:12px;color:var(--muted);font-size:15px}
+.facts b{display:block;font:700 24px Unbounded,sans-serif;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:24px}
+.card svg{width:64px;height:64px;margin-bottom:14px}
+.card h3{font-size:18px;margin-bottom:8px}
+.card p{margin:0;color:var(--muted);font-size:15.5px}
+.alt{background:var(--sky)}
+.life{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center}
+.life svg{width:100%;height:auto;border-radius:24px}
+.life ul{padding-left:20px;color:var(--muted)}
+.life li{margin-bottom:8px}
+ol.steps{list-style:none;counter-reset:s;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px}
+ol.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:24px}
+ol.steps li::before{content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--gold);color:#16194a;font:700 17px Unbounded,sans-serif;margin-bottom:12px}
+ol.steps b{display:block;margin-bottom:4px}
+ol.steps span{color:var(--muted);font-size:15.5px}
+.contact{background:var(--hero);color:var(--hero-ink)}
+.contact .grid{margin-top:24px}
+.contact .card{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18)}
+.contact .card p{color:#cdd3ff}
+footer{background:var(--hero);color:#9aa2dd;text-align:center;padding:20px;font-size:14px;border-top:1px solid rgba(255,255,255,.12)}
+@media (max-width:800px){.hero .wrap,.about,.life{grid-template-columns:1fr}.hero svg{max-width:420px;margin:auto}.facts{grid-template-columns:1fr}section{padding:52px 0}}
+</style>
+</head>
+<body>
+<header>
+ <div class="bar">
+  <a class="logo" href="#top" aria-label="Light Academy">
+   <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#ffc93c"/><path d="M16 6c-4 0-7 3-7 6.800 0 2.400 1.200 4 2.600 5.400.8.800 1.400 1.600 1.400 2.800h6c0-1.200.6-2 1.400-2.800C21.800 16.800 23 15.200 23 12.800 23 9 20 6 16 6z" fill="#16194a"/><rect x="12.500" y="22" width="7" height="2.200" rx="1" fill="#16194a"/></svg>
+   Light Academy
+  </a>
+  <nav aria-label="Главное меню">
+   <a href="#about">О колледже</a>
+   <a href="#programs">Направления</a>
+   <a href="#life">Студенческая жизнь</a>
+   <a href="#admission">Поступление</a>
+   <a class="cta" href="#contacts">Контакты</a>
+  </nav>
+ </div>
+</header>
+
+<main id="top">
+<div class="hero">
+ <div class="wrap">
+  <div>
+   <h1>Колледж, где знания становятся профессией</h1>
+   <p>Light Academy помогает студентам найти своё направление, получить практические навыки и уверенно войти в профессию.</p>
+   <a class="btn" href="#admission">Как поступить</a>
+   <a class="btn ghost" href="#programs">Смотреть направления</a>
+  </div>
+  <svg viewBox="0 0 480 400" role="img" aria-label="Здание колледжа, освещённое светом лампы">
+   <defs>
+    <linearGradient id="b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffc93c" stop-opacity=".9"/><stop offset="1" stop-color="#ffc93c" stop-opacity="0"/></linearGradient>
+   </defs>
+   <polygon class="beam" points="240,70 80,330 400,330" fill="url(#b)"/>
+   <circle cx="60" cy="60" r="3" fill="#fff"/><circle cx="420" cy="40" r="2.500" fill="#fff"/><circle cx="380" cy="110" r="2" fill="#fff"/><circle cx="110" cy="130" r="2" fill="#fff"/>
+   <rect x="90" y="190" width="300" height="150" fill="#2b3190"/>
+   <polygon points="70,190 240,110 410,190" fill="#3b43b5"/>
+   <circle cx="240" cy="160" r="14" fill="#ffc93c"/>
+   <rect x="215" y="270" width="50" height="70" rx="4" fill="#16194a"/>
+   <g fill="#ffc93c"><rect x="115" y="215" width="36" height="42" rx="3"/><rect x="170" y="215" width="36" height="42" rx="3"/><rect x="274" y="215" width="36" height="42" rx="3"/><rect x="329" y="215" width="36" height="42" rx="3"/><rect x="115" y="280" width="36" height="42" rx="3" opacity=".5"/><rect x="329" y="280" width="36" height="42" rx="3" opacity=".5"/></g>
+   <rect x="60" y="340" width="360" height="14" rx="7" fill="#1f9d94"/>
+   <circle cx="240" cy="64" r="22" fill="#ffc93c"/><rect x="230" y="84" width="20" height="8" rx="3" fill="#ffc93c"/>
+  </svg>
+ </div>
+</div>
+
+<section id="about">
+ <div class="wrap about">
+  <div>
+   <h2>О колледже</h2>
+   <p class="lead">Light Academy — современное учебное заведение, где теория сочетается с практикой. Мы строим обучение вокруг реальных задач: проекты, стажировки и наставники, которые работают в профессии.</p>
+   <p class="lead">Небольшие группы позволяют преподавателям уделять внимание каждому студенту, а удобные аудитории и лаборатории создают рабочую атмосферу.</p>
+   <div class="facts">
+    <div><b>Практика</b>с первого курса</div>
+    <div><b>Малые группы</b>внимание каждому</div>
+    <div><b>Диплом</b>государственного образца</div>
+   </div>
+  </div>
+  <svg viewBox="0 0 400 320" role="img" aria-label="Студенты за столом с книгами и лампой">
+   <rect y="250" width="400" height="70" fill="#1f9d94" opacity=".25"/>
+   <rect x="40" y="200" width="320" height="16" rx="8" fill="#16194a"/>
+   <rect x="70" y="216" width="12" height="60" fill="#16194a"/><rect x="318" y="216" width="12" height="60" fill="#16194a"/>
+   <rect x="110" y="170" width="70" height="30" rx="4" fill="#3b43b5"/><rect x="118" y="148" width="70" height="22" rx="4" fill="#1f9d94"/>
+   <rect x="220" y="130" width="100" height="70" rx="6" fill="#16194a"/><rect x="228" y="138" width="84" height="54" rx="3" fill="#ffc93c"/>
+   <path d="M60 200 L60 120 L100 90" stroke="#16194a" stroke-width="6" fill="none" stroke-linecap="round"/>
+   <circle cx="108" cy="86" r="16" fill="#ffc93c"/>
+   <polygon points="108,100 60,200 156,200" fill="#ffc93c" opacity=".2"/>
+   <circle cx="250" cy="70" r="22" fill="#ffc93c" opacity=".35"/><circle cx="250" cy="70" r="10" fill="#ffc93c"/>
+  </svg>
+ </div>
+</section>
+
+<section id="programs" class="alt">
+ <div class="wrap">
+  <h2>Направления обучения</h2>
+  <p class="lead">Выберите программу, которая подходит вашим интересам. Список направлений можно изменить под реальную программу колледжа.</p>
+  <div class="grid">
+   <div class="card">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="10" width="52" height="36" rx="5" fill="#16194a"/><rect x="11" y="15" width="42" height="26" rx="2" fill="#ffc93c"/><rect x="22" y="50" width="20" height="5" rx="2" fill="#16194a"/><path d="M26 24l-6 4 6 4M38 24l6 4-6 4" stroke="#16194a" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <h3>Информационные технологии</h3><p>Программирование, сети и основы кибербезопасности.</p>
+   </div>
+   <div class="card">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="30" width="10" height="24" rx="2" fill="#1f9d94"/><rect x="25" y="18" width="10" height="36" rx="2" fill="#16194a"/><rect x="42" y="8" width="10" height="46" rx="2" fill="#ffc93c"/><rect x="4" y="54" width="56" height="4" rx="2" fill="#16194a"/></svg>
+    <h3>Экономика и бизнес</h3><p>Бухгалтерия, финансы и управление небольшим делом.</p>
+   </div>
+   <div class="card">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="26" fill="#1f9d94"/><path d="M12 32h40M32 6c-12 14-12 38 0 52M32 6c12 14 12 38 0 52" stroke="#fff" stroke-width="2.500" fill="none"/></svg>
+    <h3>Иностранные языки</h3><p>Английский и другие языки для учёбы, работы и путешествий.</p>
+   </div>
+   <div class="card">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M10 50L40 12l12 12-30 38z" fill="#ffc93c"/><path d="M40 12l6-6 12 12-6 6z" fill="#16194a"/><path d="M10 50l-2 8 8-2z" fill="#16194a"/></svg>
+    <h3>Дизайн</h3><p>Графика, интерфейсы и визуальные коммуникации.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="life">
+ <div class="wrap life">
+  <svg viewBox="0 0 440 320" role="img" aria-label="Студенческий двор с деревьями и скамейкой">
+   <rect width="440" height="320" fill="#dfeaff"/>
+   <circle cx="360" cy="60" r="32" fill="#ffc93c"/>
+   <rect y="240" width="440" height="80" fill="#1f9d94"/>
+   <g><rect x="62" y="150" width="14" height="95" fill="#16194a"/><circle cx="69" cy="130" r="48" fill="#1f9d94"/><circle cx="48" cy="150" r="30" fill="#2bb5aa"/></g>
+   <g><rect x="352" y="170" width="12" height="75" fill="#16194a"/><circle cx="358" cy="150" r="38" fill="#2bb5aa"/></g>
+   <rect x="150" y="205" width="140" height="12" rx="5" fill="#16194a"/><rect x="150" y="180" width="140" height="10" rx="5" fill="#3b43b5"/>
+   <rect x="160" y="217" width="8" height="30" fill="#16194a"/><rect x="272" y="217" width="8" height="30" fill="#16194a"/>
+   <circle cx="190" cy="165" r="10" fill="#16194a"/><rect x="180" y="173" width="20" height="32" rx="8" fill="#ffc93c"/>
+   <circle cx="240" cy="165" r="10" fill="#16194a"/><rect x="230" y="173" width="20" height="32" rx="8" fill="#3b43b5"/>
+  </svg>
+  <div>
+   <h2>Студенческая жизнь</h2>
+   <p class="lead">Учёба — только часть истории. В колледже есть то, что делает время студентом ярким.</p>
+   <ul>
+    <li>Клубы по интересам и творческие мероприятия</li>
+    <li>Встречи с профессионалами и экскурсии на предприятия</li>
+    <li>Спортивные секции и командные игры</li>
+    <li>Библиотека и тихие зоны для подготовки</li>
+   </ul>
+  </div>
+ </div>
+</section>
+
+<section id="admission" class="alt">
+ <div class="wrap">
+  <h2>Как поступить</h2>
+  <p class="lead">Четыре шага от заявки до первого учебного дня.</p>
+  <ol class="steps">
+   <li><b>Выберите направление</b><span>Изучите программы и определитесь с профессией.</span></li>
+   <li><b>Подайте документы</b><span>Заявление, паспорт и документ об образовании.</span></li>
+   <li><b>Пройдите собеседование</b><span>Расскажите о своих интересах и целях.</span></li>
+   <li><b>Получите зачисление</b><span>Приходите на первый день и знакомьтесь с группой.</span></li>
+  </ol>
+ </div>
+</section>
+
+<section id="contacts" class="contact">
+ <div class="wrap">
+  <h2>Контакты</h2>
+  <p class="lead" style="color:#cdd3ff">Приходите на день открытых дверей или задайте вопрос приёмной комиссии.</p>
+  <div class="grid">
+   <div class="card"><h3>Адрес</h3><p>Укажите адрес колледжа</p></div>
+   <div class="card"><h3>Телефон</h3><p>Укажите номер приёмной комиссии</p></div>
+   <div class="card"><h3>Почта</h3><p>Укажите электронную почту</p></div>
+  </div>
+ </div>
+</section>
+</main>
+<footer>© 2026 Light Academy</footer>
+</body>
+</html>
